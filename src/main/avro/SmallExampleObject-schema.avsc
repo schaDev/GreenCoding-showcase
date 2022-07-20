@@ -1,0 +1,26 @@
+{
+  "name": "SmallExampleAvro",
+  "type": "record",
+  "namespace": "org.greencoding.showcase.serialization.avro.testdata",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "type": "int"
+    },
+    {
+      "name": "hobbies",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "birthday",
+      "type": "long"
+    }
+  ]
+}

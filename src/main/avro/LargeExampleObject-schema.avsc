@@ -1,0 +1,438 @@
+{
+  "name": "LargeExampleAvro",
+  "type": "record",
+  "namespace": "org.greencoding.showcase.serialization.avro.testdata",
+  "fields": [
+    {
+      "name": "avgPx",
+      "type": "float"
+    },
+    {
+      "name": "comission",
+      "type": "float"
+    },
+    {
+      "name": "commType",
+      "type": "string"
+    },
+    {
+      "name": "currency",
+      "type": "string"
+    },
+    {
+      "name": "execId",
+      "type": "string"
+    },
+    {
+      "name": "execRefId",
+      "type": "string"
+    },
+    {
+      "name": "execTransactiontype",
+      "type": "string"
+    },
+    {
+      "name": "execType",
+      "type": "string"
+    },
+    {
+      "name": "idSource",
+      "type": "string"
+    },
+    {
+      "name": "lastCapacity",
+      "type": "string"
+    },
+    {
+      "name": "lastMkt",
+      "type": "string"
+    },
+    {
+      "name": "lastPx",
+      "type": "float"
+    },
+    {
+      "name": "lastShares",
+      "type": "float"
+    },
+    {
+      "name": "msgSeqNum",
+      "type": "int"
+    },
+    {
+      "name": "orderId",
+      "type": "string"
+    },
+    {
+      "name": "orderQuantity",
+      "type": "float"
+    },
+    {
+      "name": "orderStatus",
+      "type": "string"
+    },
+    {
+      "name": "origCiOrderId",
+      "type": "string"
+    },
+    {
+      "name": "posDupFlag",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "float"
+    },
+    {
+      "name": "securityId",
+      "type": "string"
+    },
+    {
+      "name": "side",
+      "type": "string"
+    },
+    {
+      "name": "symbol",
+      "type": "string"
+    },
+    {
+      "name": "text",
+      "type": "string"
+    },
+    {
+      "name": "transactId",
+      "type": "long"
+    },
+    {
+      "name": "parentOrderId",
+      "type": "string"
+    },
+    {
+      "name": "settlementType",
+      "type": "string"
+    },
+    {
+      "name": "futSettleprivate",
+      "type": "string"
+    },
+    {
+      "name": "symbolSfx",
+      "type": "string"
+    },
+    {
+      "name": "parentOrderQuantity",
+      "type": "float"
+    },
+    {
+      "name": "tradeCurrencyCountry",
+      "type": "string"
+    },
+    {
+      "name": "tradeprivate",
+      "type": "string"
+    },
+    {
+      "name": "execBroker",
+      "type": "string"
+    },
+    {
+      "name": "openClose",
+      "type": "string"
+    },
+    {
+      "name": "processCode",
+      "type": "string"
+    },
+    {
+      "name": "origSide",
+      "type": "string"
+    },
+    {
+      "name": "netPrice",
+      "type": "float"
+    },
+    {
+      "name": "clientId",
+      "type": "string"
+    },
+    {
+      "name": "reportToExchange",
+      "type": "boolean"
+    },
+    {
+      "name": "leavesQuantity",
+      "type": "float"
+    },
+    {
+      "name": "securityType",
+      "type": "string"
+    },
+    {
+      "name": "settleBroker",
+      "type": "string"
+    },
+    {
+      "name": "securityExchange",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "maturityMonthYear",
+      "type": "string"
+    },
+    {
+      "name": "maturityDay",
+      "type": "string"
+    },
+    {
+      "name": "putOrCall",
+      "type": "int"
+    },
+    {
+      "name": "strikePrice",
+      "type": "float"
+    },
+    {
+      "name": "exerciseType",
+      "type": "string"
+    },
+    {
+      "name": "ocaInstrumentType",
+      "type": "string"
+    },
+    {
+      "name": "spread",
+      "type": "float"
+    },
+    {
+      "name": "contractMultiplier",
+      "type": "float"
+    },
+    {
+      "name": "underlyingSecurityExchange",
+      "type": "string"
+    },
+    {
+      "name": "underlyingSymbol",
+      "type": "string"
+    },
+    {
+      "name": "underlyingMaturityMonthYear",
+      "type": "string"
+    },
+    {
+      "name": "underlyingMaturityDay",
+      "type": "string"
+    },
+    {
+      "name": "underlyingContractMultiplier",
+      "type": "float"
+    },
+    {
+      "name": "trader",
+      "type": "string"
+    },
+    {
+      "name": "enteredBy",
+      "type": "string"
+    },
+    {
+      "name": "instrumentCountry",
+      "type": "string"
+    },
+    {
+      "name": "settleCurrency",
+      "type": "string"
+    },
+    {
+      "name": "instrumentCurrency",
+      "type": "string"
+    },
+    {
+      "name": "instrumentName",
+      "type": "string"
+    },
+    {
+      "name": "instrCurrencyFxRate",
+      "type": "float"
+    },
+    {
+      "name": "instrCurrencyFxRateCalc",
+      "type": "string"
+    },
+    {
+      "name": "strategy",
+      "type": "string"
+    },
+    {
+      "name": "nonDeliverableForward",
+      "type": "string"
+    },
+    {
+      "name": "mainPrice",
+      "type": "float"
+    },
+    {
+      "name": "interestRate",
+      "type": "long"
+    },
+    {
+      "name": "openPrivate",
+      "type": "long"
+    },
+    {
+      "name": "closePrivate",
+      "type": "long"
+    },
+    {
+      "name": "customRiskClass",
+      "type": "string"
+    },
+    {
+      "name": "customSubBook",
+      "type": "string"
+    },
+    {
+      "name": "customStrategy",
+      "type": "string"
+    },
+    {
+      "name": "customCountry",
+      "type": "string"
+    },
+    {
+      "name": "customCounterParty",
+      "type": "string"
+    },
+    {
+      "name": "customFrm",
+      "type": "string"
+    },
+    {
+      "name": "customSalesBroker",
+      "type": "string"
+    },
+    {
+      "name": "commFlag",
+      "type": "string"
+    },
+    {
+      "name": "initialMargin",
+      "type": "string"
+    },
+    {
+      "name": "collateralFlag",
+      "type": "string"
+    },
+    {
+      "name": "fundFamily",
+      "type": "string"
+    },
+    {
+      "name": "familyAllocInfo",
+      "type": "string"
+    },
+    {
+      "name": "custodianAccount",
+      "type": "string"
+    },
+    {
+      "name": "businessUnit",
+      "type": "string"
+    },
+    {
+      "name": "subBusinessUnit",
+      "type": "string"
+    },
+    {
+      "name": "fund",
+      "type": "string"
+    },
+    {
+      "name": "autoCreateFlag",
+      "type": "int"
+    },
+    {
+      "name": "positionBeforeTrade",
+      "type": "float"
+    },
+    {
+      "name": "originalFaceValue",
+      "type": "float"
+    },
+    {
+      "name": "loanAmount",
+      "type": "float"
+    },
+    {
+      "name": "accrualDaysPerMonth",
+      "type": "string"
+    },
+    {
+      "name": "accrualDaysPerYear",
+      "type": "string"
+    },
+    {
+      "name": "endOfMonth",
+      "type": "string"
+    },
+    {
+      "name": "fixingPrivate",
+      "type": "string"
+    },
+    {
+      "name": "currentMargin",
+      "type": "string"
+    },
+    {
+      "name": "tradeFlat",
+      "type": "string"
+    },
+    {
+      "name": "parentQuantity",
+      "type": "float"
+    },
+    {
+      "name": "underlyingQuantity",
+      "type": "float"
+    },
+    {
+      "name": "customCrossCurrency",
+      "type": "string"
+    },
+    {
+      "name": "customProductType",
+      "type": "string"
+    },
+    {
+      "name": "transactionType",
+      "type": "string"
+    },
+    {
+      "name": "newStrategy",
+      "type": "string"
+    },
+    {
+      "name": "newPrimeBroker",
+      "type": "string"
+    },
+    {
+      "name": "customFundQuantity1",
+      "type": "float"
+    },
+    {
+      "name": "customFundSide1",
+      "type": "string"
+    },
+    {
+      "name": "customFundQuantity2",
+      "type": "float"
+    },
+    {
+      "name": "customFundSide3",
+      "type": "string"
+    }
+  ]
+}
