@@ -1,15 +1,19 @@
 package org.greencoding.showcase.effectivejava;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.lang.management.MemoryUsage;
+import java.util.ArrayList;
 import java.util.EmptyStackException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Slf4j
 class GreenCodingTests {
 
     // Who can spot the GreenCoding Bugs?
@@ -28,8 +32,8 @@ class GreenCodingTests {
         // END: actual code
 
         assertEquals("GreenCoding", a); // Don't change this line
-        assertTrue(2000L > System.currentTimeMillis() - start,
-                "Execution took longer than 2s"); // FIXME solve the performance issue
+        assertTrue(3000L > System.currentTimeMillis() - start,
+                "Execution took longer than 3s"); // FIXME solve the performance issue
     }
 
     @Test
@@ -42,9 +46,8 @@ class GreenCodingTests {
             a = a + "GreenCoding";
         }
         // END: actual code
-
-        assertTrue(2000L > System.currentTimeMillis() - start,
-                "Execution took longer than 2s"); // FIXME solve the performance issue
+        assertTrue(1500L > System.currentTimeMillis() - start,
+                "Execution took longer than 1.5s"); // FIXME solve the performance issue
     }
 
     @Test
@@ -61,6 +64,55 @@ class GreenCodingTests {
         assertEquals(2305843008139952128L, sum); // Don't change this line
         assertTrue(2000L > System.currentTimeMillis() - start,
                 "Execution took longer than 2s"); // FIXME solve the performance issue
+    }
+
+    @Test
+    void loop() {
+        List<String> someList = initHugeList();
+
+        // FOR LOOP
+        long startLoop1 = System.currentTimeMillis();
+        for (int i = 0; i < someList.size(); i++) {
+            // do stuff
+        }
+        long timeLoop1 = System.currentTimeMillis() - startLoop1;
+
+        // FOREACH LOOP
+        long startLoop2 = System.currentTimeMillis();
+        for (String s : someList) {
+            // do stuff
+        }
+        long timeLoop2 = System.currentTimeMillis() - startLoop1;
+
+        // LAMBDA LOOP
+        long startLoop3 = System.currentTimeMillis();
+        someList.forEach(s -> {
+            // do stuff
+        });
+        long timeLoop3 = System.currentTimeMillis() - startLoop1;
+
+        // WHILE LOOP
+        long startLoop4 = System.currentTimeMillis();
+        int i = someList.size();
+        while (i > 0) {
+            i--;
+            // do stuff
+        }
+        long timeLoop4 = System.currentTimeMillis() - startLoop1;
+
+
+        log.info("\n FOR LOOP:\t\t {}\n FOREACH LOOP:\t {}\n LAMBDA LOOP:\t {}\n WHILE LOOP:\t {}", timeLoop1, timeLoop2, timeLoop3, timeLoop4);
+        assertTrue(startLoop2 < startLoop1);
+    }
+
+    private static List<String> initHugeList() {
+        int size = 400000000;
+        String gc = "GreenCoding";
+        List<String> someList = new ArrayList<>(size);
+        for (int l = 0; l <= size; l++) {
+            someList.add(gc);
+        }
+        return someList;
     }
 
     @Test

@@ -50,19 +50,19 @@ public class EncryptionEnergyMeasurement {
             if (rsaKeyLength != 0) {
                 IntStream.rangeClosed(1, times)
                         .forEach(i -> {
-                            // generate AES key
+                            // generate AES key on client
                             SecretKey aesKey = encryptionSupport.generateAesKey(aesKeyLength);
-                            // asymmetric RSA
+                            // asymmetric RSA to encrypt AES key on client
                             byte[] encryptedAesKey = encryptionSupport.encrypt(rsaKeyPair, Base64.getEncoder().encodeToString(aesKey.getEncoded()));
-                            // symmetric AES
-                            encryptionSupport.encryptFile(aesKey, indexHtml, encryptedFile);
-                            // asymmetric RSA
+                            // asymmetric RSA to decrypt AES key on server
                             encryptionSupport.decrypt(rsaKeyPair, encryptedAesKey);
-                            // symmetric AES
+                            // symmetric AES to encrypt data/file on server
+                            encryptionSupport.encryptFile(aesKey, indexHtml, encryptedFile);
+                            // symmetric AES to decrypt data/file on client
                             encryptionSupport.decryptFile(aesKey, encryptedFile, decryptedFile);
                         });
             }
-            log.info("simulating {} ssl encryptions finished.", times);
+            log.info("simulating {} ssl encryption's finished.", times);
         } finally {
             result = energyMonitor.stopRecording();
             result.setTimes(times);

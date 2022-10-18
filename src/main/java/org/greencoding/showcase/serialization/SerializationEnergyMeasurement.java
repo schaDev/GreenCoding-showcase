@@ -8,7 +8,7 @@ import org.greencoding.showcase.serialization.avro.AvroSerializer;
 import org.greencoding.showcase.serialization.avro.testdata.LargeExampleAvro;
 import org.greencoding.showcase.serialization.json.JsonSerializer;
 import org.greencoding.showcase.serialization.json.testdata.LargeExamplePojo;
-import org.springframework.core.io.ClassPathResource;
+import org.greencoding.showcase.serialization.json.testdata.TestdataLoader;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -23,10 +23,13 @@ public class SerializationEnergyMeasurement {
     private final JsonSerializer jsonSerializer;
     private final AvroSerializer avroSerializer;
 
-    public SerializationEnergyMeasurement(EnergyMonitor energyMonitor, JsonSerializer jsonSerializer, AvroSerializer avroSerializer) {
+    private final TestdataLoader testdataLoader;
+
+    public SerializationEnergyMeasurement(EnergyMonitor energyMonitor, JsonSerializer jsonSerializer, AvroSerializer avroSerializer, TestdataLoader testdataLoader) {
         this.energyMonitor = energyMonitor;
         this.jsonSerializer = jsonSerializer;
         this.avroSerializer = avroSerializer;
+        this.testdataLoader = testdataLoader;
         avroSerializer.setUp();
     }
 
@@ -34,7 +37,7 @@ public class SerializationEnergyMeasurement {
     @SneakyThrows
     public EnergyResult measureSerializeJson(boolean includeFilesystem, int times) {
         // create testdata outside of energy monitoring
-        LargeExamplePojo testdataPojo = loadTestdataPojo();
+        LargeExamplePojo testdataPojo = testdataLoader.loadTestdataPojo();
 
         energyMonitor.startRecoring();
         EnergyResult result;
@@ -60,7 +63,7 @@ public class SerializationEnergyMeasurement {
     @SneakyThrows
     public EnergyResult measureSerializeAvro(boolean includeFilesystem, int times) {
         // create testdata outside of energy monitoring
-        LargeExampleAvro testdataAvro = loadTestdataAvro();
+        LargeExampleAvro testdataAvro = testdataLoader.loadTestdataAvro();
 
         energyMonitor.startRecoring();
         EnergyResult result;
@@ -84,13 +87,4 @@ public class SerializationEnergyMeasurement {
     }
 
 
-    @SneakyThrows
-    private LargeExamplePojo loadTestdataPojo() {
-        return (LargeExamplePojo) jsonSerializer.deserializeFromFile(LargeExamplePojo.class, new ClassPathResource("serialization-testdata.json").getFile());
-    }
-
-    @SneakyThrows
-    private LargeExampleAvro loadTestdataAvro() {
-        return (LargeExampleAvro) jsonSerializer.deserializeFromFile(LargeExampleAvro.class, new ClassPathResource("serialization-testdata.json").getFile());
-    }
 }

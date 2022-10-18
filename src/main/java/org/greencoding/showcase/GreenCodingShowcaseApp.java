@@ -19,13 +19,13 @@ public class GreenCodingShowcaseApp {
     public static void main(String[] args) {
         SpringApplication.run(GreenCodingShowcaseApp.class, args);
         // Germany 2021: 485 https://www.umweltbundesamt.de/themen/klima-energie/energieversorgung/strom-waermeversorgung-in-zahlen#Strommix
-        EnergyResult.setAvgCo2PerKwh(485);
+        EnergyResult.setAvgGramOfCo2PerKwh(485);
     }
 
     @EventListener(ApplicationReadyEvent.class)
     public void doSomethingAfterStartup() {
         log.info("grid emissions for calculations configured to {} gCo2e/kwh", emissionsPerKwh);
-        EnergyResult.setAvgCo2PerKwh(emissionsPerKwh);
+        EnergyResult.setAvgGramOfCo2PerKwh(emissionsPerKwh);
     }
 
 }
