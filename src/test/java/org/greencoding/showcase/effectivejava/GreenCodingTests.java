@@ -46,8 +46,8 @@ class GreenCodingTests {
             a = a + "GreenCoding";
         }
         // END: actual code
-        assertTrue(1500L > System.currentTimeMillis() - start,
-                "Execution took longer than 1.5s"); // FIXME solve the performance issue
+        assertTrue(1000L > System.currentTimeMillis() - start,
+                "Execution took longer than 1s"); // FIXME solve the performance issue
     }
 
     @Test
@@ -72,37 +72,38 @@ class GreenCodingTests {
 
         // FOR LOOP
         long startLoop1 = System.currentTimeMillis();
-        for (int i = 0; i < someList.size(); i++) {
-            // do stuff
+        int size = someList.size();
+        for (int i = 0; i < size; i++) {
+            String tmp = someList.get(i);
         }
         long timeLoop1 = System.currentTimeMillis() - startLoop1;
 
         // FOREACH LOOP
         long startLoop2 = System.currentTimeMillis();
         for (String s : someList) {
-            // do stuff
+            String tmp = s;
         }
-        long timeLoop2 = System.currentTimeMillis() - startLoop1;
+        long timeLoop2 = System.currentTimeMillis() - startLoop2;
 
         // LAMBDA LOOP
         long startLoop3 = System.currentTimeMillis();
         someList.forEach(s -> {
-            // do stuff
+            String tmp = s;
         });
-        long timeLoop3 = System.currentTimeMillis() - startLoop1;
+        long timeLoop3 = System.currentTimeMillis() - startLoop3;
 
         // WHILE LOOP
         long startLoop4 = System.currentTimeMillis();
         int i = someList.size();
         while (i > 0) {
             i--;
-            // do stuff
+            String tmp = someList.get(i);
         }
-        long timeLoop4 = System.currentTimeMillis() - startLoop1;
+        long timeLoop4 = System.currentTimeMillis() - startLoop4;
 
 
         log.info("\n FOR LOOP:\t\t {}\n FOREACH LOOP:\t {}\n LAMBDA LOOP:\t {}\n WHILE LOOP:\t {}", timeLoop1, timeLoop2, timeLoop3, timeLoop4);
-        assertTrue(startLoop2 < startLoop1);
+        assertTrue(timeLoop1 < timeLoop4);
     }
 
     private static List<String> initHugeList() {
