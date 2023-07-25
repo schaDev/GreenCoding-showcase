@@ -1,6 +1,6 @@
 [![Java](https://img.shields.io/badge/Made%20with-Java-orange)](https://openjdk.java.net)
 
-This projects project contains showcases on GreenCoding
+This projects project contains showcases on GreenCoding in java
 
 # What is GreenCoding?
 
@@ -124,6 +124,17 @@ Learn by example the impact of memory leaks and bad object creations on performa
 ### Execution
 
 Open the Unittests in class `GreenCodingTests` and execute them. After observing the bad behaviour try to fix them.
+
+## Showcase 4: Opimize a file import using a profiler (step-by-step)
+
+### Purpose
+
+Learn to use a profiler and optimize some simple Java Code to improve performance and carbon intensity of a simple file import.   
+
+### Execution
+
+A file with 10 million can be generated using `MapGenerator` utility class. Afterwards, run the `MapReaderTests` in package `profiling.demo1`
+To understand how and why this is implemented use a profiler (for example build in IntelliJ).
 
 # Troubleshooting
 Most likely you should have a look at `src/main/resources/application.propreties` and check Power Gadget Properties are
